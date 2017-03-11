@@ -1,7 +1,7 @@
 %% Oppgave 1 - Fox
 clear;
 clc;
-fileID = fopen('fox-log-file.csv');
+fileID = fopen('log_files\fox-log-file.csv');
 FD_data = textscan(fileID,'%d%d%s','Delimiter', ',');
 fclose(fileID);
 age = FD_data{1,1};
