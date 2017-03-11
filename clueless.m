@@ -51,15 +51,16 @@ foxSize = size(foxInfo);
 foxSize = foxSize(1);
 foxAvgAge = zeros();
 step = foxInfo(1,2);
+foxAvgStep = zeros();
 for i = 1:foxSize
-    foxAvgStep = 0;
-    foxThisStep = 0;
+    %foxThisStep = 0;
     if foxInfo(i,2)==step
-        foxAvgStep = foxAvgStep + foxInfo(i,1);
-        foxThisStep = foxThisStep + 1;
+        foxAvgStep = [ foxAvgStep foxInfo(i,1) ];
+        %foxThisStep = foxThisStep + 1;
     else
         step = foxInfo(i,2);
-        foxAvgAge = [ foxAvgAge foxAvgStep/foxThisStep ];
+        foxAvgAge = [ foxAvgAge mean(foxAvgStep) ];
+        foxAvgStep = zeros();
     end
     
 end
