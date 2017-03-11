@@ -18,12 +18,14 @@ foxAge = FD_data{1,1};
 foxStep = FD_data{1,2};
 foxInfo = FD_data{1,1};
 foxInfo = [ foxInfo FD_data{1,2} ];
-
-foxInfo(:,{'Age','Step'})
-
-asdf = foxInfo(foxInfo.Step==4)
-
 clear('fileID','FD_data');
+
+%foxInfo(:,{'Age','Step'})
+
+%asdf = foxInfo(foxInfo{1,2}==4)
+
+foxSize = size(foxInfo);
+foxSize = foxSize(1);
 
 % Åpner og henter ut data fra wolf-log-file.csv
 fileID = fopen('log_files\wolf-log-file.csv');
