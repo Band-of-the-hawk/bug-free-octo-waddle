@@ -8,8 +8,8 @@ FD_data = textscan(fileID,'%d%d%s','Delimiter', ',');
 fclose(fileID);
 rabbitInfo = FD_data{1,1};
 rabbitInfo = [ rabbitInfo FD_data{1,2} ];
-rabbitAge = rabbitInfo(1,1);
-rabbitStep = rabbitInfo(1,2);
+rabbitAge = rabbitInfo(:,1);
+rabbitStep = rabbitInfo(:,2);
 clear('fileID','FD_data');
 
 % Åpner og henter ut data fra fox-log-file.csv
@@ -28,8 +28,8 @@ FD_data = textscan(fileID,'%d%d%s','Delimiter', ',');
 fclose(fileID);
 wolfInfo = FD_data{1,1};
 wolfInfo = [ wolfInfo FD_data{1,2} ];
-wolfAge = wolfInfo(1,1);
-wolfStep = wolfInfo(1,2);
+wolfAge = wolfInfo(:,1);
+wolfStep = wolfInfo(:,2);
 clear('fileID','FD_data');
 
 % Åpner og henter ut data fra population-log-file.csv
@@ -39,9 +39,9 @@ fclose(fileID);
 popInfo = FD_data{1,1};
 popInfo = [ popInfo FD_data{1,2} ];
 popInfo = [ popInfo FD_data{1,3} ];
-rabbitPop = popInfo(1,1);
-foxPop = popInfo(1,2);
-wolfPop = popInfo(1,3);
+rabbitPop = popInfo(:,1);
+foxPop = popInfo(:,2);
+wolfPop = popInfo(:,3);
 clear('fileID','FD_data');
 
 % Lat eksperimenteringa byrje!
@@ -50,8 +50,20 @@ clear('fileID','FD_data');
 foxSize = size(foxInfo);
 foxSize = foxSize(1);
 foxAvgAge = zeros();
-for 1 = 0:foxSize
-    foxAvgStep = zeros();
-    foxThisStep = 1;
-    if
+step = foxInfo(1,2);
+for i = 1:foxSize
+    foxAvgStep = 0;
+    foxThisStep = 0;
+    if foxInfo(i,2)==step
+        foxAvgStep = foxAvgStep + foxInfo(i,1);
+        foxThisStep = foxThisStep + 1;
+    else
+        step = foxInfo(i,2);
+        foxAvgAge = [ foxAvgAge foxAvgStep/foxThisStep ];
+    end
+    
 end
+
+    
+    
+    
