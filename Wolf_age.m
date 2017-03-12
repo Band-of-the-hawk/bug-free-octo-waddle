@@ -24,16 +24,18 @@ sumAge = sum(age);
 avgAge = sumAge/n;
 clear('sumAge', 'sizeAge');
 %% Standardavvik for avg. levealder Ulv.
+%% Standardavvik for avg. levealder rev.
 xi = zeros(n,1);
 it = 0;
 for i = 1:n
-    xi = age(i,1);
-    it = (it + ((xi-avgAge).*(xi-avgAge)));
+    xi(i,1) = age(i,1)-avgAge;
+    it = it + xi(i,1)^2;
 end
 s2 = (1/(n-1))*it;
 clear('it', 'xi','i');
 s2 = double(s2);
 s = sqrt(s2);
+clear('s2');
 %Matlab Standardavvik for avg.
 age2 = double(age);
 st2 = std(age2);
