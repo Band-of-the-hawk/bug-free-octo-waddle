@@ -1,7 +1,7 @@
 %% Oppgave 2 
 clear;
 clc;
-fileID = fopen('log_files\population-log-file.csv');
+fileID = fopen('log_files_vinh\population-log-file.csv');
 FD_data = textscan(fileID,'%d%d%d','Delimiter', ',');
 fclose(fileID);
 rabbit = FD_data{1,1};
