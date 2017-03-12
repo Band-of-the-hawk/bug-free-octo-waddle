@@ -24,7 +24,6 @@ sumAge = sum(age);
 avgAge = sumAge/n;
 clear('sumAge', 'sizeAge');
 %% Standardavvik for avg. levealder Ulv.
-%% Standardavvik for avg. levealder rev.
 xi = zeros(n,1);
 it = 0;
 for i = 1:n

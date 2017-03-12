@@ -23,7 +23,7 @@ n = size(age,(1:1));
 sumAge = sum(age);
 avgAge = sumAge/n;
 clear('sumAge', 'sizeAge');
-%% Standardavvik for avg. levealder rev.
+%% Standardavvik for avg. levealder kanin.
 xi = zeros(n,1);
 it = 0;
 for i = 1:n
